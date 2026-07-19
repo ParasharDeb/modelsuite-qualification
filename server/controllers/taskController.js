@@ -41,12 +41,19 @@ const createTask = async (req, res) => {
   const { title, description, status, assignedTo, dueDate } = req.body;
 
   try {
+    const parsedDueDate = new Date(dueDate);
+
+    if (isNaN(parsedDueDate.getTime()) || parsedDueDate <= new Date()) {
+      return res.status(400).json({
+        message: "Due date must be a valid date in the future.",
+      });
+    }
     const task = await Task.create({
       title,
       description,
       status,
       assignedTo: assignedTo || null,
-      dueDate,
+      dueDate:parsedDueDate,
       createdBy: req.user._id,
     });
 
