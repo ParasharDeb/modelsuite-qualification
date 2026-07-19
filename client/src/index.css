@@ -4,7 +4,7 @@
 /* ─────────────────────────────────────────
    Tailwind v4 Theme — ModelSuite Talents Design System V2
 ───────────────────────────────────────── */
-@theme inline {
+:root {
   --color-primary:       #3B82F6;
   --color-primary-dark:  #2563EB;
   --color-secondary:     #6B7280;
@@ -39,13 +39,34 @@
 
 body {
   font-family: 'Inter', 'Poppins', sans-serif;
-  background: #050505;
-  color: #F0F0F0;
+  background: var(--color-bg-dark);
+  color: var(--color-text-primary);
   margin: 0;
   padding: 0;
   -webkit-font-smoothing: antialiased;
   -moz-osx-font-smoothing: grayscale;
+  transition: background 220ms ease, color 220ms ease;
 }
+
+/* Light theme overrides */
+.theme-light {
+  --color-primary:       #2563EB;
+  --color-primary-dark:  #1D4ED8;
+  --color-secondary:     #4B5563;
+  --color-bg-dark:       #F8FAFC;
+  --color-bg-surface:    #FFFFFF;
+  --color-bg-card:       #FFFFFF;
+  --color-bg-input:      rgba(16,24,39,0.04);
+  --color-bg-hover:      rgba(0,0,0,0.02);
+  --color-border:        rgba(2,6,23,0.06);
+  --color-border-light:  rgba(2,6,23,0.09);
+  --color-text-primary:  #0B1220;
+  --color-text-muted:    #6B7280;
+  --color-text-faint:    rgba(11,18,32,0.6);
+}
+
+/* Dark theme explicit class (keeps defaults but provides class hook) */
+.theme-dark { }
 
 /* ─────────────────────────────────────────
    Custom Scrollbar
@@ -108,6 +129,60 @@ body {
 .animate-marquee:hover {
   animation-play-state: paused;
 }
+
+/* Theme toggle styles */
+.theme-toggle-wrapper {
+  position: fixed;
+  top: 14px;
+  right: 14px;
+  z-index: 60;
+}
+
+.theme-toggle {
+  --size: 40px;
+  width: var(--size);
+  height: var(--size);
+  border-radius: 999px;
+  display: inline-grid;
+  place-items: center;
+  background: var(--color-bg-surface);
+  box-shadow: 0 6px 18px rgba(2,6,23,0.45);
+  border: 1px solid var(--color-border);
+  backdrop-filter: blur(6px);
+  cursor: pointer;
+  transition: transform 220ms cubic-bezier(.2,.9,.2,1), box-shadow 220ms, background 220ms, border-color 220ms;
+}
+.theme-toggle:active { transform: scale(0.98); }
+
+.theme-toggle .icon-sun,
+.theme-toggle .icon-moon {
+  width: 20px;
+  height: 20px;
+  display: inline-block;
+  transition: transform 320ms cubic-bezier(.2,.9,.2,1), opacity 220ms, filter 220ms;
+}
+
+.theme-toggle .icon-sun { transform: translateY(0) scale(1); opacity: 1; filter: drop-shadow(0 6px 18px rgba(245,158,11,0.08)); }
+.theme-toggle .icon-moon { transform: scale(0.6) translateX(4px); opacity: 0; filter: drop-shadow(0 6px 16px rgba(2,6,23,0.35)); }
+
+.theme-toggle.is-dark { background: linear-gradient(180deg, rgba(15,23,42,0.6), rgba(2,6,23,0.6)); border-color: rgba(255,255,255,0.04); }
+.theme-toggle.is-dark .icon-sun { transform: scale(0.5) translateX(-6px); opacity: 0; }
+.theme-toggle.is-dark .icon-moon { transform: scale(1) translateX(0); opacity: 1; }
+
+.theme-toggle:hover { box-shadow: 0 10px 28px rgba(2,6,23,0.6); transform: translateY(-2px); }
+
+/* Simple non-animated toggle */
+.theme-toggle-simple {
+  padding: 8px 10px;
+  border-radius: 8px;
+  background: transparent;
+  border: 1px solid var(--color-border);
+  color: var(--color-text-primary);
+  font-weight: 600;
+  font-size: 13px;
+  cursor: pointer;
+}
+.theme-toggle-simple:active { transform: translateY(0); }
 
 .marquee-container {
   overflow: hidden;
@@ -178,7 +253,7 @@ body {
   border-radius: 8px;
   border: none;
   background: transparent;
-  color: #6B7280;
+  color: var(--color-text-muted);
   font-size: 13.5px;
   font-weight: 500;
   font-family: 'Inter', sans-serif;
@@ -222,7 +297,7 @@ body {
   width: 18px;
   height: 18px;
   flex-shrink: 0;
-  color: #4B5563;
+  color: var(--color-text-muted);
   transition: color 0.15s ease-out;
 }
 
@@ -289,8 +364,8 @@ body {
   font-weight: 600;
   letter-spacing: 0.07em;
   text-transform: uppercase;
-  color: #4B5563;
-  background: #0A0A0A;
+  color: var(--color-text-muted);
+  background: var(--color-bg-surface);
   white-space: nowrap;
   font-family: 'Inter', sans-serif;
 }

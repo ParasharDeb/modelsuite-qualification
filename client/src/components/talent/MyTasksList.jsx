@@ -69,11 +69,11 @@ const MyTasksList = ({ tasks, onRefresh }) => {
             {/* Task info */}
             <div className="flex-1 min-w-0">
               <p className="font-semibold truncate mb-0.5"
-                style={{ fontSize: '13.5px', color: '#E5E2E1', fontFamily: 'Inter, sans-serif' }}>
+                style={{ fontSize: '13.5px', color: 'var(--color-text-primary)', fontFamily: 'Inter, sans-serif' }}>
                 {task.title || 'Untitled Task'}
               </p>
               {fmtDate(task.dueDate) && (
-                <p className="flex items-center gap-1.5 text-[11.5px]" style={{ color: '#4B5563' }}>
+                <p className="flex items-center gap-1.5 text-[11.5px]" style={{ color: 'var(--color-text-muted)' }}>
                   <IconCalendar />
                   Due {fmtDate(task.dueDate)}
                 </p>

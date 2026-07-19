@@ -1,0 +1,146 @@
+.stt-track {
+  position: fixed;
+  top: 16px;
+  right: 18px;
+  left: auto;
+  z-index: 1000;
+  width: 66px;
+  height: 34px;
+  border-radius: 999px;
+  border: 1px solid rgba(255, 255, 255, 0.14);
+  background: rgba(255, 255, 255, 0.08);
+  display: inline-grid;
+  place-items: center;
+  cursor: pointer;
+  overflow: hidden;
+  transition: background 180ms ease, border-color 180ms ease, transform 180ms ease;
+}
+
+.stt-track:hover {
+  transform: translateY(-1px);
+}
+
+.stt-track.stt-dark {
+  background: rgba(15, 23, 42, 0.92);
+  border-color: rgba(255, 255, 255, 0.18);
+}
+
+.stt-sky {
+  position: absolute;
+  inset: 0;
+  display: grid;
+  place-items: center;
+  transition: opacity 180ms ease, transform 180ms ease;
+}
+
+.stt-sky-day {
+  background: radial-gradient(circle at 30% 35%, #fde68a 0%, #f59e0b 35%, transparent 72%);
+  opacity: 1;
+  transform: translateY(0);
+}
+
+.stt-track.stt-dark .stt-sky-day {
+  opacity: 0;
+  transform: translateY(-12px);
+}
+
+.stt-sky-night {
+  background: radial-gradient(circle at 50% 45%, #cbd5e1 0%, #0f172a 45%, transparent 80%);
+  opacity: 0;
+  transform: translateY(12px);
+}
+
+.stt-track.stt-dark .stt-sky-night {
+  opacity: 1;
+  transform: translateY(0);
+}
+
+.stt-cloud,
+.stt-star {
+  position: absolute;
+  display: block;
+}
+
+.stt-cloud {
+  width: 16px;
+  height: 8px;
+  background: rgba(255, 255, 255, 0.75);
+  border-radius: 999px;
+}
+
+.stt-cloud-a {
+  top: 12px;
+  left: 18px;
+  width: 18px;
+  height: 8px;
+  opacity: 0.9;
+}
+
+.stt-cloud-b {
+  top: 8px;
+  right: 14px;
+  width: 14px;
+  height: 6px;
+  opacity: 0.7;
+}
+
+.stt-star {
+  width: 4px;
+  height: 4px;
+  background: #f8fafc;
+  border-radius: 50%;
+  opacity: 0.9;
+}
+
+.stt-thumb {
+  position: absolute;
+  left: 4px;
+  width: 28px;
+  height: 28px;
+  border-radius: 50%;
+  z-index: 1;
+  display: grid;
+  place-items: center;
+  background: rgba(15, 23, 42, 0.95);
+  box-shadow: 0 10px 24px rgba(15, 23, 42, 0.24);
+  transition: transform 220ms cubic-bezier(.2,.9,.2,1), background 180ms ease, box-shadow 180ms ease;
+  transform: translateX(0);
+}
+
+.stt-track.stt-dark .stt-thumb {
+  background: #f8fafc;
+  transform: translateX(32px);
+}
+
+.stt-icon {
+  width: 20px;
+  height: 20px;
+  stroke: currentColor;
+  color: #facc15;
+  fill: none;
+}
+
+.stt-track.stt-dark .stt-icon {
+  color: #0f172a;
+}
+
+.stt-rays {
+  opacity: 1;
+  transition: opacity 180ms ease;
+}
+
+.stt-track.stt-dark .stt-rays {
+  opacity: 0;
+}
+
+.stt-body {
+  fill: currentColor;
+}
+
+.stt-craters circle {
+  fill: rgba(255, 255, 255, 0.5);
+}
+
+.stt-track.stt-dark .stt-craters circle {
+  fill: rgba(15, 23, 42, 0.65);
+}

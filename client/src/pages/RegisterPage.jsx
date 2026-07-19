@@ -101,7 +101,7 @@ const RegisterPage = () => {
 
       {/* ── Right: Visual panel ── */}
       <div className="hidden lg:flex flex-col items-center justify-center relative overflow-hidden p-16 animate-fade-in min-h-screen"
-        style={{ background: 'linear-gradient(140deg, #050505 0%, #111111 50%, #000000 100%)', animationDelay: '0.1s', animationFillMode: 'both' }}>
+        style={{ background: 'linear-gradient(140deg, var(--color-bg-dark) 0%, var(--color-bg-surface) 50%, var(--color-bg-dark) 100%)', animationDelay: '0.1s', animationFillMode: 'both' }}>
         
         {/* Top Right Info Icon */}
         <div className="absolute top-12 right-12 group z-50">
@@ -114,21 +114,21 @@ const RegisterPage = () => {
           </div>
           
           {/* Tooltip Popup */}
-          <div className="absolute right-0 top-14 w-[340px] p-6 rounded-2xl bg-[#0D0D0D]/95 backdrop-blur-xl border border-white/10 shadow-[0_20px_40px_-15px_rgba(0,0,0,0.8)] opacity-0 translate-y-3 invisible group-hover:opacity-100 group-hover:translate-y-0 group-hover:visible transition-all duration-300">
+          <div className="absolute right-0 top-14 w-[340px] p-6 rounded-2xl backdrop-blur-xl border border-white/10 shadow-[0_20px_40px_-15px_rgba(0,0,0,0.8)] opacity-0 translate-y-3 invisible group-hover:opacity-100 group-hover:translate-y-0 group-hover:visible transition-all duration-300" style={{ background: 'var(--color-bg-card)' }}>
             <h3 className="text-white font-bold text-[15px] mb-4 font-display">Intern Selection Flow</h3>
             <ol className="flex flex-col gap-4 relative">
               {/* Vertical line */}
               <div className="absolute left-[9px] top-2 bottom-2 w-[2px] bg-white/10 rounded-full"></div>
               
               <li className="flex items-start gap-4 relative opacity-0 -translate-x-3 group-hover:opacity-100 group-hover:translate-x-0 transition-all duration-300 delay-100">
-                <div className="w-[20px] h-[20px] rounded-full bg-[#10B981] flex-shrink-0 mt-0.5 border-[3px] border-[#0D0D0D] relative z-10 shadow-[0_0_12px_rgba(16,185,129,0.5)] animate-pulse"></div>
+                <div className="w-[20px] h-[20px] rounded-full bg-[#10B981] flex-shrink-0 mt-0.5 border-[3px] border-border relative z-10 shadow-[0_0_12px_rgba(16,185,129,0.5)] animate-pulse"></div>
                 <div>
                   <p className="text-[13px] font-semibold text-white">1. Start Working</p>
                   <p className="text-[12px] text-text-muted mt-1 leading-relaxed">Review your pre-assigned issues and begin development.</p>
                 </div>
               </li>
               <li className="flex items-start gap-4 relative opacity-0 -translate-x-3 group-hover:opacity-100 group-hover:translate-x-0 transition-all duration-300 delay-200">
-                <div className="w-[20px] h-[20px] rounded-full bg-[#3B82F6] flex-shrink-0 mt-0.5 border-[3px] border-[#0D0D0D] relative z-10 shadow-[0_0_12px_rgba(59,130,246,0.5)] animate-pulse" style={{ animationDelay: '0.2s' }}></div>
+                <div className="w-[20px] h-[20px] rounded-full bg-[#3B82F6] flex-shrink-0 mt-0.5 border-[3px] border-border relative z-10 shadow-[0_0_12px_rgba(59,130,246,0.5)] animate-pulse" style={{ animationDelay: '0.2s' }}></div>
                 <div>
                   <p className="text-[13px] font-semibold text-white">2. Resolve & Push</p>
                   <p className="text-[12px] text-text-muted mt-1 leading-relaxed">Fix the issue in code and submit a Pull Request.</p>

@@ -47,7 +47,7 @@ const AdminDashboard = () => {
   };
 
   const statCards = [
-    { label: 'Total Tasks', value: stats.total,     colorClass: 'stat-card-default', valueColor: '#E5E2E1' },
+    { label: 'Total Tasks', value: stats.total,     colorClass: 'stat-card-default', valueColor: 'var(--color-text-primary)' },
     { label: 'Open',        value: stats.open,      colorClass: 'stat-card-blue',    valueColor: '#60A5FA' },
     { label: 'Submitted',   value: stats.submitted, colorClass: 'stat-card-info',    valueColor: '#60A5FA' },
     { label: 'Approved',    value: stats.approved,  colorClass: 'stat-card-green',   valueColor: '#34D399' },
@@ -63,26 +63,26 @@ const AdminDashboard = () => {
   });
 
   return (
-    <div className="flex min-h-screen" style={{ background: '#050505' }}>
+    <div className="flex min-h-screen" style={{ background: 'var(--color-bg-dark)' }}>
       <Sidebar />
 
       <main className="ml-[240px] flex-1 px-8 py-8" style={{ maxWidth: 'calc(100vw - 240px)' }}>
 
         {/* Page header */}
-        <div className="flex items-center justify-between mb-7 page-section">
+        <div className="flex items-center justify-between mb-7 page-section flex-wrap gap-4">
           <div>
             <h1 className="font-display text-[22px] font-semibold tracking-tight"
-              style={{ color: '#F0F0F0', fontFamily: 'Poppins, sans-serif' }}>
+              style={{ color: 'var(--color-text-primary)', fontFamily: 'Poppins, sans-serif' }}>
               Task Management
             </h1>
-            <p className="mt-0.5 text-[13px]" style={{ color: '#6B7280' }}>
+            <p className="mt-0.5 text-[13px]" style={{ color: 'var(--color-text-muted)' }}>
               Create, assign, and track all tasks across your talent pool.
             </p>
           </div>
 
           <button
             onClick={() => setShowCreate(true)}
-            className="btn-gradient flex items-center gap-2 px-4 py-2.5 rounded-[10px] text-[13px] font-semibold cursor-pointer font-sans">
+            className="btn-gradient flex items-center gap-2 px-6 py-2.5 my-10 rounded-[10px] text-[13px] font-semibold cursor-pointer font-sans">
             <IconPlus />
             Create Task
           </button>
@@ -93,7 +93,7 @@ const AdminDashboard = () => {
           {statCards.map(({ label, value, colorClass, valueColor }) => (
             <div key={label} className={`stat-card ${colorClass}`}>
               <span className="block text-[10.5px] font-semibold uppercase tracking-[0.08em] mb-3"
-                style={{ color: '#4B5563', fontFamily: 'Inter, sans-serif' }}>
+                style={{ color: 'var(--color-text-muted)', fontFamily: 'Inter, sans-serif' }}>
                 {label}
               </span>
               <span className="block text-[32px] font-bold leading-none"
@@ -110,13 +110,13 @@ const AdminDashboard = () => {
           <div className="table-header-bar">
             <div className="flex items-center gap-2">
               <h2 className="text-[15px] font-semibold"
-                style={{ color: '#E5E2E1', fontFamily: 'Poppins, sans-serif' }}>
+                style={{ color: 'var(--color-text-primary)', fontFamily: 'Poppins, sans-serif' }}>
                 All Tasks
               </h2>
               <span className="text-[11px] px-2 py-0.5 rounded-full"
                 style={{
                   background: 'rgba(255,255,255,0.06)',
-                  color: '#6B7280',
+                  color: 'var(--color-text-muted)',
                   border: '1px solid rgba(255,255,255,0.09)',
                   fontFamily: 'Inter, sans-serif',
                 }}>
