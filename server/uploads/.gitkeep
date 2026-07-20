@@ -1,2 +1,3 @@
 # This folder holds uploaded submission files.
 # Intentional gap: uploads folder is committed to the repo — production files should never be in version control.
+#TODO: I am just keeping the uploads in the .gitignore i dont know how to clean up the multer uploads
