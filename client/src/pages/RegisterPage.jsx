@@ -22,7 +22,9 @@ const RegisterPage = () => {
   const handleSubmit = async (e) => {
     e.preventDefault();
     try {
-      const { data } = await API.post('/auth/register', { name, email, password, role });
+      const { data } = await API.post('/auth/register', { name, email, password, role },{
+    withCredentials: true,
+  });
       login(data);
       data.role === 'Admin' ? navigate('/admin/dashboard') : navigate('/talent/dashboard');
     } catch (err) {

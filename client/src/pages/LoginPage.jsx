@@ -20,7 +20,13 @@ const LoginPage = () => {
   const handleSubmit = async (e) => {
     e.preventDefault();
     try {
-      const { data } = await API.post('/auth/login', { email, password });
+      const { data } = await API.post(
+  "/auth/login",
+  { email, password },
+  {
+    withCredentials: true,
+  }
+);
       login(data);
       data.role === 'Admin' ? navigate('/admin/dashboard') : navigate('/talent/dashboard');
     } catch (err) {

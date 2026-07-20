@@ -19,6 +19,9 @@ const userSchema = new mongoose.Schema(
       enum: ['Admin', 'Talent'],
       default: 'Talent',
     },
+    lastLogoutAt: {
+      type: Date,
+    },
   },
   { timestamps: true }
 );

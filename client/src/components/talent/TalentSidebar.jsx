@@ -1,6 +1,5 @@
 import { useNavigate, useLocation } from 'react-router-dom';
 import { useAuth } from '../../context/AuthContext';
-
 /* ── Clean SVG line-art icons ── */
 const IconDashboard = () => (
   <svg className="nav-icon" viewBox="0 0 20 20" fill="none" stroke="currentColor" strokeWidth="1.6" strokeLinecap="round" strokeLinejoin="round">
@@ -84,7 +83,7 @@ const TalentSidebar = () => {
           </div>
 
           <button
-            onClick={() => { logout(); navigate('/login'); }}
+            onClick={async() => { await logout(); navigate('/login'); }}
             title="Sign out"
             className="logout-btn">
             <IconLogout />
